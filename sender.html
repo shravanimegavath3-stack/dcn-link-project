@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>DCN·LINK | Transmitter</title>
+
+    <link rel="stylesheet" href="transfer.css">
+    <link rel="stylesheet" href="connect.css">
+</head>
+
+<body>
+
+    <header class="navbar">
+
+        <div class="logo">DCN<span>·</span>LINK</div>
+
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="sender.html" class="active">Transmitter</a>
+            <a href="reciever.html">Receiver</a>
+        </nav>
+
+        <div class="connection-status">
+            <span class="status-dot"></span>
+            Sender Mode
+        </div>
+
+    </header>
+
+
+    <main class="main-container">
+
+        <section class="page-heading">
+            <p class="section-label">DCN·LINK / DATA TRANSFER</p>
+            <h1>Transmit Your <span>Data.</span></h1>
+            <p class="page-description">
+                Send text, images, audio, videos and files securely
+                between connected devices.
+            </p>
+        </section>
+
+
+        <div class="transmitter-layout">
+
+            <!-- LEFT: DATA SELECTION -->
+            <section class="transfer-card">
+
+                <div class="card-heading">
+                    <div>
+                        <h2>Select Your Data</h2>
+                        <p>Choose the type of content you want to transfer.</p>
+                    </div>
+                    <span class="step-number">01</span>
+                </div>
+
+                <div class="data-tabs">
+                    <button class="data-tab active" data-type="file" type="button">All Files</button>
+                    <button class="data-tab" data-type="image" type="button">Images</button>
+                    <button class="data-tab" data-type="audio" type="button">Audio</button>
+                    <button class="data-tab" data-type="video" type="button">Videos</button>
+                    <button class="data-tab" data-type="text" type="button">Text</button>
+                </div>
+
+                <div class="upload-area" id="uploadArea">
+                    <input type="file" id="fileInput" hidden multiple>
+                    <div class="upload-icon">↑</div>
+                    <h3>Drag and drop your files here</h3>
+                    <p>Or browse files from your device</p>
+                    <button type="button" class="browse-button" id="browseButton">Browse Files</button>
+                    <p class="file-support" id="fileSupport">
+                        Supports images, audio, videos and documents.
+                    </p>
+                </div>
+
+                <div class="selected-files" id="selectedFiles">
+                    <div class="selected-heading">
+                        <h3>Selected Files</h3>
+                        <button type="button" id="clearFiles" class="clear-button">Clear All</button>
+                    </div>
+                    <div id="fileList" class="file-list">
+                        <p class="empty-message">No files selected yet.</p>
+                    </div>
+                </div>
+
+                <div class="text-transfer" id="textTransfer">
+                    <label for="textMessage">Enter your text message</label>
+                    <textarea id="textMessage" rows="6" placeholder="Type your message here..."></textarea>
+                    <div class="text-info">
+                        <span>Text Transfer</span>
+                        <span id="characterCount">0 characters</span>
+                    </div>
+                </div>
+
+            </section>
+
+
+            <!-- RIGHT: RECEIVER DETAILS -->
+            <section class="transfer-card receiver-card">
+
+                <div class="card-heading">
+                    <div>
+                        <h2>Receiver Details</h2>
+                        <p>Enter the IP address and port shown on the receiver device.</p>
+                    </div>
+                    <span class="step-number">02</span>
+                </div>
+
+                <div class="form-group">
+                    <label for="receiverIP">Receiver IP Address</label>
+                    <input type="text" id="receiverIP" placeholder="Example: 192.168.1.10" autocomplete="off">
+                    <small>Enter the IP address displayed on the receiver device.</small>
+                </div>
+
+                <div class="form-group">
+                    <label for="receiverPort">Receiver Port</label>
+                    <input type="number" id="receiverPort" value="5000" min="1" max="65535">
+                    <small>Default application port: 5000</small>
+                </div>
+
+                <div class="form-group">
+                    <label for="transferMedium">Select Transfer Medium</label>
+                    <select id="transferMedium">
+                        <option value="Wi-Fi">Wi-Fi</option>
+                        <option value="Bluetooth">Bluetooth</option>
+                        <option value="FSO">Free Space Optics (FSO)</option>
+                        <option value="mmWave">mmWave</option>
+                        <option value="LoRa">LoRa</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="transferProtocol">Transfer Protocol</label>
+                    <select id="transferProtocol">
+                        <option value="HTTP">HTTP (TCP-based)</option>
+                    </select>
+                    <small>Browser-based transfers use HTTP through the backend.</small>
+                </div>
+
+                <button type="button" id="sendButton" class="send-button">
+                    <span>↑</span>
+                    Send Data
+                </button>
+
+                <div class="transfer-status" id="transferStatus">
+                    <div class="status-indicator"></div>
+                    <p id="statusMessage">Waiting for transfer...</p>
+                </div>
+
+                <div class="progress-container" id="progressContainer">
+                    <div class="progress-info">
+                        <span>Transfer Progress</span>
+                        <span id="progressPercentage">0%</span>
+                    </div>
+                    <div class="progress-track">
+                        <div class="progress-bar" id="progressBar"></div>
+                    </div>
+                </div>
+
+            </section>
+
+        </div>
+
+
+        <section class="information-section">
+            <div class="information-item">
+                <span class="info-icon">01</span>
+                <div><h3>Select Data</h3><p>Choose the content you want to transmit.</p></div>
+            </div>
+            <div class="information-item">
+                <span class="info-icon">02</span>
+                <div><h3>Connect Receiver</h3><p>Enter the receiver IP and port.</p></div>
+            </div>
+            <div class="information-item">
+                <span class="info-icon">03</span>
+                <div><h3>Start Transfer</h3><p>Send your selected data to the destination.</p></div>
+            </div>
+        </section>
+
+    </main>
+
+
+    <footer class="footer">
+        <p>© 2026 DCN·LINK | Intelligent Data Transfer System</p>
+    </footer>
+
+    <script src="transmitter.js"></script>
+
+</body>
+</html>
