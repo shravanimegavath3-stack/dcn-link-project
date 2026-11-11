@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>DCN·LINK | Receiver</title>
+
+    <link rel="stylesheet" href="transfer.css">
+    <link rel="stylesheet" href="connect.css">
+    <link rel="stylesheet" href="history.css">
+</head>
+
+<body>
+
+    <header class="navbar">
+        <div class="logo">DCN<span>·</span>LINK</div>
+
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="sender.html">Transmitter</a>
+            <a href="receiver.html" class="active">Receiver</a>
+        </nav>
+
+        <div class="connection-status">
+            <span class="status-dot" id="serverDot"></span>
+            <span id="serverText">Receiver Mode</span>
+        </div>
+    </header>
+
+
+    <main class="main-container">
+
+        <section class="page-heading">
+            <p class="section-label">DCN·LINK / DATA RECEIVER</p>
+            <h1>Receive Your <span>Data.</span></h1>
+            <p class="page-description">
+                Share the IP address and port below with the sender.
+                Incoming text, images, audio, videos and files appear here instantly.
+            </p>
+        </section>
+
+
+        <div class="receiver-layout">
+
+            <!-- LEFT: RECEIVER ADDRESS -->
+            <section class="transfer-card">
+
+                <div class="card-heading">
+                    <div>
+                        <h2>Receiver Address</h2>
+                        <p>Give the sender this IP address and port.</p>
+                    </div>
+                    <span class="step-number">01</span>
+                </div>
+
+                <div class="address-grid">
+                    <div class="receiver-ip-box">
+                        <h3>IP Address</h3>
+                        <p id="receiverIPValue">Loading...</p>
+                    </div>
+
+                    <div class="receiver-ip-box">
+                        <h3>Port</h3>
+                        <p id="receiverPortValue">—</p>
+                    </div>
+                </div>
+
+                <p class="receiver-url" id="receiverURL"></p>
+
+                <div class="copy-row">
+                    <button type="button" class="outline-button" id="copyIP">Copy IP</button>
+                    <button type="button" class="outline-button" id="copyAddress">Copy IP:Port</button>
+                </div>
+
+                <small class="helper-text" id="copyMessage">
+                    Both devices must be on the same network (Wi-Fi or hotspot).
+                </small>
+
+            </section>
+
+
+            <!-- RIGHT: INCOMING DATA -->
+            <section class="transfer-card">
+
+                <div class="card-heading">
+                    <div>
+                        <h2>Incoming Data</h2>
+                        <p>Everything sent to this device is listed here.</p>
+                    </div>
+                    <span class="step-number">02</span>
+                </div>
+
+                <div class="incoming-toolbar">
+                    <span id="incomingCount">0 items</span>
+                    <button type="button" class="clear-button" id="clearIncoming">Clear List</button>
+                </div>
+
+                <div class="incoming-list" id="incomingList">
+                    <p class="empty-message">Waiting for incoming data...</p>
+                </div>
+
+            </section>
+
+        </div>
+
+
+        <!-- DOWNLOAD HISTORY -->
+        <section class="transfer-card history-section">
+
+            <div class="card-heading">
+                <div>
+                    <h2>Download History</h2>
+                    <p>Every file downloaded from this receiver is logged here and survives a restart.</p>
+                </div>
+                <span class="step-number">03</span>
+            </div>
+
+            <div class="history-toolbar">
+                <span id="historyCount">0 entries</span>
+                <button type="button" class="clear-button" id="clearHistory">Clear History</button>
+            </div>
+
+            <div class="history-list" id="historyList">
+                <p class="empty-message">No downloads yet.</p>
+            </div>
+
+        </section>
+
+
+        <section class="information-section">
+            <div class="information-item">
+                <span class="info-icon">01</span>
+                <div><h3>Share Address</h3><p>Tell the sender this IP and port.</p></div>
+            </div>
+            <div class="information-item">
+                <span class="info-icon">02</span>
+                <div><h3>Sender Connects</h3><p>The sender types the IP and port.</p></div>
+            </div>
+            <div class="information-item">
+                <span class="info-icon">03</span>
+                <div><h3>Receive and Save</h3><p>Preview, download, and find it later in History.</p></div>
+            </div>
+        </section>
+
+    </main>
+
+
+    <footer class="footer">
+        <p>© 2026 DCN·LINK | Intelligent Data Transfer System</p>
+    </footer>
+
+    <!-- POPUP MESSAGES (download success / failure) -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <script src="receiver.js"></script>
+
+</body>
+</html>
